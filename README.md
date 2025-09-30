@@ -8,7 +8,6 @@ This project aims to implement automated epileptic seizure detection and classif
 
 **BEED (Bangalore EEG Epilepsy Dataset)**
 - **Total Samples**: 8,000 EEG recordings
-- **Recording Duration**: 20 seconds per sample
 - **Sampling Rate**: 256 Hz
 - **Channels**: 16 EEG channels (X1-X16) following the 10-20 electrode placement system
 - **Categories**:
