@@ -152,34 +152,34 @@ pip install -r requirements.txt
 
 ## Implementation Roadmap
 
-### Phase 1: Data Exploration (Week 1)
+### Phase 1: Data Exploration 
 - [ ] Load and inspect dataset
 - [ ] Visualize EEG signals for each class
 - [ ] Statistical analysis of features
 - [ ] Check class distribution
 
-### Phase 2: Feature Engineering (Week 2)
+### Phase 2: Feature Engineering 
 - [ ] Implement FFT for spectral features
 - [ ] Apply UMAP for temporal features
 - [ ] Create combined feature set
 - [ ] Visualize feature distributions
 
-### Phase 3: Baseline Models (Week 3)
+### Phase 3: Baseline Models 
 - [ ] Train simple classifiers
 - [ ] Evaluate performance metrics
 - [ ] Establish baseline accuracy
 
-### Phase 4: Advanced Models (Week 4)
+### Phase 4: Advanced Models 
 - [ ] Implement LSTM network
 - [ ] Train XGBoost and Gradient Boosting
 - [ ] Compare with baselines
 
-### Phase 5: Ensemble Learning (Week 5)
+### Phase 5: Ensemble Learning 
 - [ ] Build SeqBoostNet stacking model
 - [ ] Optimize hyperparameters
 - [ ] Final evaluation and comparison
 
-### Phase 6: Documentation (Week 6)
+### Phase 6: Documentation 
 - [ ] Document findings
 - [ ] Create visualizations
 - [ ] Write final report
@@ -214,18 +214,13 @@ Based on reference research, aiming for:
 
 2. Original BEED Dataset: [Kaggle/UCI Repository]
 
-## License
-
-[Specify your license here]
 
 ## Contributors
-
-[Your name and contact information]
+Joy Dorcas=joymanyara55@gmail.com
 
 ## Acknowledgments
 
 Special thanks to the Bangalore EEG clinic for providing the BEED dataset and contributing to epilepsy research.
 
----
 
 **Note**: This is a research/educational project. Any clinical applications should be validated by medical professionals and regulatory authorities.
