@@ -1,5 +1,8 @@
 # Epileptic Seizure Classification Using BEED Dataset
 
+# Problem Statement:
+Epileptic seizures are characterized by sudden, abnormal brain activity that can be detected through electroencephalography (EEG). Manual review of EEG recordings is time-consuming, labor-intensive, and prone to human error, especially since EEG sessions often last several hours and seizure patterns vary significantly across patients. There is a critical need for an automated system that can accurately detect seizures in EEG signals in real time, enabling timely medical intervention, reducing the workload of clinicians, and improving patient safety.
+
 ## Project Overview
 
 This project aims to implement automated epileptic seizure detection and classification using the Bangalore EEG Epilepsy Dataset (BEED). The goal is to build a machine learning pipeline that can distinguish between different types of seizures (Focal, Generalized) and healthy brain activity using EEG signal analysis.
@@ -23,6 +26,39 @@ This project aims to implement automated epileptic seizure detection and classif
 3. Implement dimensionality reduction techniques
 4. Build classification models to detect and classify seizures
 5. Evaluate model performance and compare with baseline approaches
+<img width="500" height="334" alt="image" src="https://github.com/user-attachments/assets/fc98ef57-197c-41bf-95a1-01e0f21219dd" />
+<img width="500" height="281" alt="image" src="https://github.com/user-attachments/assets/84d96b67-13e9-4303-964a-a62b4d10466d" />
+
+# EEG: How It Works
+
+## 1. What EEG Measures
+- Your brain cells (neurons) communicate using small electrical impulses.  
+- When groups of neurons fire together, they create rhythmic patterns called **brain waves**.  
+- EEG detects these electrical signals on the scalp using electrodes.  
+
+## 2. How It Works
+### Electrodes on the scalp
+- Small metal discs with conductive gel are placed at specific positions on the head.  
+- A standard system called the **10–20 system** is used to position them consistently.  
+
+### Amplification
+- Brain signals are very weak (microvolts), so an amplifier is used to make them strong enough to record.  
+
+### Recording
+- The signals are recorded over time as **waveforms**.  
+- The computer displays them as continuous lines that move up and down with the brain’s activity.  
+
+## 3. Brain Waves Seen on EEG
+Different frequency ranges correspond to different brain states:
+
+- **Delta (0.5–4 Hz):** deep sleep  
+- **Theta (4–8 Hz):** drowsiness, light sleep, creativity  
+- **Alpha (8–13 Hz):** relaxed but awake, calm states  
+- **Beta (13–30 Hz):** active thinking, focus, anxiety  
+- **Gamma (30–100 Hz):** memory, perception, problem-solving  
+<img width="500" height="434" alt="image" src="https://github.com/user-attachments/assets/653357a1-ed6b-413b-a133-3d6ea9966aa5" />
+
+<img width="500" height="334" alt="image" src="https://github.com/user-attachments/assets/d1b70cbe-4d70-40f2-96dc-0d74414d24fd" />
 
 ## Planned Methodology
 
@@ -47,6 +83,38 @@ This project aims to implement automated epileptic seizure detection and classif
 #### Combined Features
 - Merge temporal and spectral features
 - Create comprehensive feature set for classification
+
+
+# Why FFT and UMAP Are Applied to EEG Training
+
+## 1. Why FFT Is Applied
+- EEG is a **time-domain signal** (voltage vs time).  
+- Seizures and other brain activities often show up as differences in **frequency patterns** (like strong spikes in delta, theta, alpha, beta, gamma bands).  
+
+**Problem:** Time signals are messy and noisy.  
+**Solution:** Use **FFT (Fast Fourier Transform)** to convert EEG from time domain → frequency domain.  
+
+- This highlights which frequencies are active and how much power they carry.  
+
+**Example:**  
+- A seizure EEG might show a sudden burst of high-frequency activity.  
+- FFT makes that easier to detect by turning the waveform into a **spectrum**.  
+
+So, FFT provides **frequency-based features** (band power, peaks, ratios) that models use as input.  
+
+## 2. Why UMAP Is Applied
+- After FFT, you often get **hundreds or thousands of features**:  
+  - Many electrodes × many frequency bins × many time windows.  
+
+- This makes the feature space **high-dimensional** and harder for a model to train on efficiently.  
+
+**Problem:** Too many features → risk of overfitting, slow training.  
+**Solution:** Use **UMAP** to reduce dimensions while keeping the structure of the data.  
+
+UMAP projects EEG features (from FFT or other methods) into **2D or 3D embeddings** where:  
+- Seizure and non-seizure clusters separate more clearly.  
+- Patterns become easier for classifiers to learn.  
+- Data visualization is possible (you can literally see seizure vs normal brain states).  
 
 ### 3. Model Development
 
