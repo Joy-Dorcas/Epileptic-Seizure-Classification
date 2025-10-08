@@ -133,6 +133,18 @@ UMAP projects EEG features (from FFT or other methods) into **2D or 3D embedding
 - Use AdaBoost as meta-learner
 - Combine predictions for improved accuracy
 
+| Model                | Accuracy | Why It Worked / Failed                                  |
+|----------------------|-----------|----------------------------------------------------------|
+| Random Forest        | 94.25%    | ✅ Perfect for your non-linear, 19-feature data          |
+| XGBoost              | 93.69%    | ✅ Almost as good, sequential learning helps             |
+| SeqBoostNet          | 93.31%    | ⚠️ Weakened by poor LSTM base model                     |
+| Gradient Boosting    | 86.31%    | ⚠️ Less sophisticated than XGBoost                      |
+| LSTM                 | 77.00%    | ❌ Wrong architecture for pre-extracted features         |
+| Logistic Regression  | 75.75%    | ❌ Too simple for non-linear patterns                    |
+| SVM                  | 73.06%    | ❌ Struggled with 19D feature space                      |
+
+
+
 ### 4. Classification Tasks
 
 Plan to evaluate models on multiple binary and multiclass scenarios:
